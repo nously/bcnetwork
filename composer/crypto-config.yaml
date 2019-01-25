@@ -1,0 +1,21 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: evote.com
+    Specs:
+      - Hostname: orderer
+PeerOrgs:
+  - Name: Jatim
+    Domain: jatim.evote.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+    Users:
+      Count: 2
+
+  - Name: Jabar
+    Domain: jabar.evote.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+    Users:
+      Count: 2

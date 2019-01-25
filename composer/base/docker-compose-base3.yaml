@@ -1,0 +1,72 @@
+version: '2'
+
+services:
+  peer0.jabar.evote.com:
+    container_name: peer0.jabar.evote.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.jabar.evote.com
+      - CORE_PEER_ADDRESS=peer0.jabar.evote.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.jabar.evote.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.jabar.evote.com:7051
+      - CORE_PEER_LOCALMSPID=JabarMSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb2:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=admin
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../channel-artifacts:/var/hyperledger/channel-artifacts
+        - ../crypto-config/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls
+        - ../crypto-config/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp
+        - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
+        - peer0.jabar.evote.com:/var/hyperledger/production
+    ports:
+      - 9051:7051
+      - 9053:7053
+
+  peer1.jabar.evote.com:
+    container_name: peer1.jabar.evote.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.jabar.evote.com
+      - CORE_PEER_ADDRESS=peer1.jabar.evote.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.jabar.evote.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.jabar.evote.com:7051
+      - CORE_PEER_LOCALMSPID=JabarMSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer1.jabar.evote.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer1.jabar.evote.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer1.jabar.evote.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=admin
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../channel-artifacts:/var/hyperledger/channel-artifacts
+        - ../crypto-config/peerOrganizations/jabar.evote.com/peers/peer1.jabar.evote.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/jabar.evote.com/peers/peer1.jabar.evote.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer1.jabar.evote.com/tls
+        - ../crypto-config/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp
+        - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
+        - peer1.jabar.evote.com:/var/hyperledger/production
+    ports:
+      - 10051:7051
+      - 10053:7053

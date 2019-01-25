@@ -1,0 +1,11 @@
+version: '2'
+
+volumes:
+  orderer.evote.com:
+
+services:
+  orderer.evote.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer.evote.com
+    container_name: orderer.evote.com
