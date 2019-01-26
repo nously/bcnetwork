@@ -314,16 +314,16 @@ JATIMADMIN="./crypto-config/peerOrganizations/jatim.evote.com/users/Admin@jatim.
 JABARADMIN="./crypto-config/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp"
 
 composer card create -p ./byfn-network-jatim.json -u PeerAdmin -c $JATIMADMIN/signcerts/A*.pem -k $JATIMADMIN/keystore/*_sk -r PeerAdmin -r ChannelAdmin -f PeerAdmin@byfn-network-jatim.card
-#composer card create -p ./byfn-network-jabar.json -u PeerAdmin -c $JABARADMIN/signcerts/A*.pem -k $JABARADMIN/keystore/*_sk -r PeerAdmin -r ChannelAdmin -f PeerAdmin@byfn-network-jabar.card
+composer card create -p ./byfn-network-jabar.json -u PeerAdmin -c $JABARADMIN/signcerts/A*.pem -k $JABARADMIN/keystore/*_sk -r PeerAdmin -r ChannelAdmin -f PeerAdmin@byfn-network-jabar.card
 
 composer card import -f PeerAdmin@byfn-network-jatim.card --card PeerAdmin@byfn-network-jatim
-#composer card import -f PeerAdmin@byfn-network-jabar.card --card PeerAdmin@byfn-network-jabar
+composer card import -f PeerAdmin@byfn-network-jabar.card --card PeerAdmin@byfn-network-jabar
 
 composer network install --card PeerAdmin@byfn-network-jatim --archiveFile evote-network@$VERSION.bna
-#composer network install --card PeerAdmin@byfn-network-jabar --archiveFile evote-network@$VERSION.bna
+composer network install --card PeerAdmin@byfn-network-jabar --archiveFile evote-network@$VERSION.bna
 
 composer identity request -c PeerAdmin@byfn-network-jatim -u admin -s adminpw -d alice
-#composer identity request -c PeerAdmin@byfn-network-jabar -u admin -s adminpw -d bob
+composer identity request -c PeerAdmin@byfn-network-jabar -u admin -s adminpw -d bob
 
 composer network start -c PeerAdmin@byfn-network-jatim -n evote-network -V $VERSION -o endorsementPolicyFile=./endorsement-policy.json -A alice -C alice/admin-pub.pem -A bob -C bob/admin-pub.pem
 
@@ -332,5 +332,5 @@ composer card create -p ./byfn-network-jatim.json -u alice -n evote-network -c a
 composer card import -f alice@evote-network.card
 
 # create card for bob, as business network admin
-#composer card create -p ./byfn-network-jabar.json -u bob -n evote-network -c bob/admin-pub.pem -k bob/admin-priv.pem
-#composer card import -f bob@evote-network.card
+composer card create -p ./byfn-network-jabar.json -u bob -n evote-network -c bob/admin-pub.pem -k bob/admin-priv.pem
+composer card import -f bob@evote-network.card

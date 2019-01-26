@@ -53,7 +53,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if [ "${FABRIC_DEV_MODE}" == "true" ]; then
     DOCKER_FILE="${DIR}"/composer/docker-compose-dev.yml
 else
-    DOCKER_FILE="${DIR}"/composer/docker-compose2.yml
+    DOCKER_FILE="${DIR}"/composer/docker-compose3.yml
 fi
 
 docker-compose -f "${DOCKER_FILE}" up -d
