@@ -64,13 +64,13 @@ echo "sleeping for ${FABRIC_START_TIMEOUT} seconds to wait for fabric to complet
 sleep ${FABRIC_START_TIMEOUT}
 
 # Create the channel
-docker exec peer0.jatim.evote.com peer channel create -o 192.168.1.9:7050 -c composerchannel -f /var/hyperledger/channel-artifacts/channel.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts/tlsca.evote.com-cert.pem
+docker exec peer0.jatim.evote.com peer channel create -o 192.168.1.10:7050 -c composerchannel -f /var/hyperledger/channel-artifacts/channel.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts/tlsca.evote.com-cert.pem
 
 # Join peer0.org1.example.com to the channel.
 docker exec peer0.jatim.evote.com peer channel join -b composerchannel.block
 
 # Join peer1.org1.example.com to the channel.
-docker exec peer1.jatim.evote.com peer channel fetch config -o 192.168.1.9:7050 -c composerchannel --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts/tlsca.evote.com-cert.pem
+docker exec peer1.jatim.evote.com peer channel fetch config -o 192.168.1.10:7050 -c composerchannel --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts/tlsca.evote.com-cert.pem
 docker exec peer1.jatim.evote.com peer channel join -b composerchannel_config.block
 
 if [ "${FABRIC_DEV_MODE}" == "true" ]; then
