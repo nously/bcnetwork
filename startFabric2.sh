@@ -58,11 +58,6 @@ fi
 
 docker-compose -f "${DOCKER_FILE}" up -d
 
-# wait for Hyperledger Fabric to start
-# incase of errors when running later commands, issue export FABRIC_START_TIMEOUT=<larger number>
-echo "sleeping for ${FABRIC_START_TIMEOUT} seconds to wait for fabric to complete start up"
-sleep ${FABRIC_START_TIMEOUT}
-
 # Create the channel
 docker exec peer0.jatim.evote.com peer channel create -o orderer.evote.com:7050 -c composerchannel -f /var/hyperledger/channel-artifacts/channel.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts/tlsca.evote.com-cert.pem
 
