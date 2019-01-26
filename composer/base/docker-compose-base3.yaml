@@ -25,13 +25,18 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=admin
     volumes:
-        - /var/run/:/host/var/run/
-        - ../channel-artifacts:/var/hyperledger/channel-artifacts
-        - ../crypto-config/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls
-        - ../crypto-config/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp
-        - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
-        - peer0.jabar.evote.com:/var/hyperledger/production
+      - /var/run/:/host/var/run/
+      - ../channel-artifacts:/var/hyperledger/channel-artifacts
+      - ../crypto-config/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/peers/peer0.jabar.evote.com/tls
+      - ../crypto-config/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp
+      - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
+      - peer0.jabar.evote.com:/var/hyperledger/production
+    extra_hosts:
+      - "peer0.jatim.evote.com:192.168.1.11"
+      - "peer1.jatim.evote.com:192.168.1.11"
+      - "ca_peerJatim:192.168.1.11"
+      - "orderer.evote.com:192.168.1.10"
     ports:
       - 9051:7051
       - 9053:7053
@@ -67,6 +72,11 @@ services:
         - ../crypto-config/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jabar.evote.com/users/Admin@jabar.evote.com/msp
         - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
         - peer1.jabar.evote.com:/var/hyperledger/production
+    extra_hosts:
+      - "peer0.jatim.evote.com:192.168.1.11"
+      - "peer1.jatim.evote.com:192.168.1.11"
+      - "ca_peerJatim:192.168.1.11"
+      - "orderer.evote.com:192.168.1.10"
     ports:
       - 10051:7051
       - 10053:7053
