@@ -37,7 +37,7 @@ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' crypto-config/ordererOrganizations/
 
 cat << EOF > ./byfn-network-jatim.json
 {
-    "name": "byfn-network-jatim",
+    "name": "byfn-network",
     "x-type": "hlfv1",
     "version": "1.0.0",
 	"client": {
@@ -118,6 +118,7 @@ cat << EOF > ./byfn-network-jatim.json
     "peers": {
         "peer0.jatim.evote.com": {
             "url": "grpcs://${JATIM_HOST}:7051",
+						"eventUrl": "grpc://${JATIM_HOST}:7053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.jatim.evote.com"
             },
@@ -127,6 +128,7 @@ cat << EOF > ./byfn-network-jatim.json
         },
         "peer1.jatim.evote.com": {
             "url": "grpcs://${JATIM_HOST}:8051",
+						"eventUrl": "grpc://${JATIM_HOST}:8053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.jatim.evote.com"
             },
@@ -136,6 +138,7 @@ cat << EOF > ./byfn-network-jatim.json
         },
         "peer0.jabar.evote.com": {
             "url": "grpcs://${JABAR_HOST}:9051",
+						"eventUrl": "grpc://${JABAR_HOST}:9053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.jabar.evote.com"
             },
@@ -145,6 +148,7 @@ cat << EOF > ./byfn-network-jatim.json
         },
         "peer1.jabar.evote.com": {
             "url": "grpcs://${JABAR_HOST}:10051",
+						"eventUrl": "grpc://${JABAR_HOST}:10053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.jabar.evote.com"
             },
@@ -175,7 +179,7 @@ EOF
 
 cat << EOF > ./byfn-network-jabar.json
 {
-    "name": "byfn-network-jabar",
+    "name": "byfn-network",
     "x-type": "hlfv1",
     "version": "1.0.0",
 	"client": {
@@ -256,6 +260,7 @@ cat << EOF > ./byfn-network-jabar.json
     "peers": {
         "peer0.jatim.evote.com": {
             "url": "grpcs://${JATIM_HOST}:7051",
+						"eventUrl": "grpc://${JATIM_HOST}:7053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.jatim.evote.com"
             },
@@ -265,6 +270,7 @@ cat << EOF > ./byfn-network-jabar.json
         },
         "peer1.jatim.evote.com": {
             "url": "grpcs://${JATIM_HOST}:8051",
+						"eventUrl": "grpc://${JATIM_HOST}:8053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.jatim.evote.com"
             },
@@ -274,6 +280,7 @@ cat << EOF > ./byfn-network-jabar.json
         },
         "peer0.jabar.evote.com": {
             "url": "grpcs://${JABAR_HOST}:9051",
+						"eventUrl": "grpc://${JABAR_HOST}:9053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.jabar.evote.com"
             },
@@ -283,6 +290,7 @@ cat << EOF > ./byfn-network-jabar.json
         },
         "peer1.jabar.evote.com": {
             "url": "grpcs://${JABAR_HOST}:10051",
+						"eventUrl": "grpc://${JABAR_HOST}:10053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.jabar.evote.com"
             },
