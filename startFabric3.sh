@@ -53,7 +53,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if [ "${FABRIC_DEV_MODE}" == "true" ]; then
     DOCKER_FILE="${DIR}"/composer/docker-compose-dev.yml
 else
-    DOCKER_FILE="${DIR}"/composer/docker-compose3.yml
+    DOCKER_FILE="${DIR}"/composer/docker-compose2.yml
 fi
 
 docker-compose -f "${DOCKER_FILE}" up -d
@@ -62,7 +62,6 @@ docker-compose -f "${DOCKER_FILE}" up -d
 # incase of errors when running later commands, issue export FABRIC_START_TIMEOUT=<larger number>
 echo "sleeping for ${FABRIC_START_TIMEOUT} seconds to wait for fabric to complete start up"
 sleep ${FABRIC_START_TIMEOUT}
-
 
 # Join peer0.org1.example.com to the channel.
 docker exec peer0.jabar.evote.com peer channel fetch config -o orderer.evote.com:7050 -c composerchannel --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts/tlsca.evote.com-cert.pem
