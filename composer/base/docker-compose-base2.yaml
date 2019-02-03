@@ -34,10 +34,10 @@ services:
         - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
         - peer0.jatim.evote.com:/var/hyperledger/production
     extra_hosts:
-      - "peer0.jabar.evote.com:192.168.1.12"
-      - "peer1.jabar.evote.com:192.168.1.12"
-      - "ca_peerJabar:192.168.1.12"
-      - "orderer.evote.com:192.168.1.10"
+      - "peer0.jabar.evote.com:192.168.2.12"
+      - "peer1.jabar.evote.com:192.168.2.12"
+      - "ca_peerJabar:192.168.2.12"
+      - "orderer.evote.com:192.168.2.12"
     ports:
       - 7051:7051
       - 7053:7053
@@ -74,10 +74,10 @@ services:
         - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
         - peer1.jatim.evote.com:/var/hyperledger/production
     extra_hosts:
-      - "peer0.jabar.evote.com:192.168.1.12"
-      - "peer1.jabar.evote.com:192.168.1.12"
-      - "ca_peerJabar:192.168.1.12"
-      - "orderer.evote.com:192.168.1.10"
+      - "peer0.jabar.evote.com:192.168.2.12"
+      - "peer1.jabar.evote.com:192.168.2.12"
+      - "ca_peerJabar:192.168.2.12"
+      - "orderer.evote.com:192.168.2.12"
     ports:
       - 8051:7051
       - 8053:7053
