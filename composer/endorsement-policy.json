@@ -2,13 +2,13 @@
     "identities": [
         {
             "role": {
-                "name": "peer",
+                "name": "member",
                 "mspId": "JatimMSP"
             }
         },
         {
             "role": {
-                "name": "peer",
+                "name": "member",
                 "mspId": "JabarMSP"
             }
         }
