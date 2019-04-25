@@ -58,11 +58,3 @@ fi
 
 docker-compose -f "${DOCKER_FILE}" up -d
 
-# wait for Hyperledger Fabric to start
-# incase of errors when running later commands, issue export FABRIC_START_TIMEOUT=<larger number>
-echo "sleeping for ${FABRIC_START_TIMEOUT} seconds to wait for fabric to complete start up"
-sleep ${FABRIC_START_TIMEOUT}
-
-if [ "${FABRIC_DEV_MODE}" == "true" ]; then
-    echo "Fabric Network started in chaincode development mode"
-fi
