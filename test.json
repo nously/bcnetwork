@@ -1,0 +1,13 @@
+{
+	"docs": [
+		{"_id":"\u0000Asset:org.evote.pemilihan.Suara\u000010100000000000\u0000","_rev":"2-6bb89cd913157fcf6b778c8f8ec7a1e1","$class":"org.evote.pemilihan.Suara","$registryId":"org.evote.pemilihan.Suara","$registryType":"Asset","owner":"resource:org.evote.pemilihan.Kandidat#1","suaraId":"10100000000000","sudahDigunakan":true,"~version":"\u0000CgMBGgA="},
+
+		{"_id":"\u0000Asset:org.evote.pemilihan.Suara\u000010200000000000\u0000","_rev":"2-f04e2208489117e7dc6f35187ccfd26e","$class":"org.evote.pemilihan.Suara","$registryId":"org.evote.pemilihan.Suara","$registryType":"Asset","owner":"resource:org.evote.pemilihan.Kandidat#2","suaraId":"10200000000000","sudahDigunakan":true,"~version":"\u0000CgMBHAA="},
+
+		{"_id":"\u0000Asset:org.evote.pemilihan.Suara\u000010300000000000\u0000","_rev":"2-cf9d0200eb9b650c44d7a90dae6f222b","$class":"org.evote.pemilihan.Suara","$registryId":"org.evote.pemilihan.Suara","$registryType":"Asset","owner":"resource:org.evote.pemilihan.Kandidat#1","suaraId":"10300000000000","sudahDigunakan":true,"~version":"\u0000CgMBHgA="},
+
+		{"_id":"\u0000Asset:org.evote.pemilihan.Suara\u000010400000000000\u0000","_rev":"2-3dec25f5e1524b4139e3b5e38becd6f0","$class":"org.evote.pemilihan.Suara","$registryId":"org.evote.pemilihan.Suara","$registryType":"Asset","owner":"resource:org.evote.pemilihan.Kandidat#1","suaraId":"10400000000000","sudahDigunakan":true,"~version":"\u0000CgMBIgA="},
+
+		{"_id":"\u0000Asset:org.evote.pemilihan.Suara\u000010500000000000\u0000","_rev":"2-8a4be793b1a9756264f33a5181129a6a","$class":"org.evote.pemilihan.Suara","$registryId":"org.evote.pemilihan.Suara","$registryType":"Asset","owner":"resource:org.evote.pemilihan.Kandidat#1","suaraId":"10500000000000","sudahDigunakan":true,"~version":"\u0000CgMBIAA="}
+	]
+}
