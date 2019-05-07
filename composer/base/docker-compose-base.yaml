@@ -25,11 +25,11 @@ services:
       - ../crypto-config/ordererOrganizations/evote.com/orderers/orderer.evote.com/tls/:/var/hyperledger/orderer/tls
       - orderer.evote.com:/var/hyperledger/production/orderer
     extra_hosts:
-      - "peer0.jatim.evote.com:3.83.91.77"
-      - "peer1.jatim.evote.com:3.83.91.77"
-      - "peer0.jabar.evote.com:3.87.63.191"
-      - "peer1.jabar.evote.com:3.87.63.191"
-      - "ca_peerJatim:3.83.91.77"
-      - "ca_peerJabar:3.87.63.191"
+      - "peer0.jatim.evote.com:35.174.4.12"
+      - "peer1.jatim.evote.com:35.174.4.12"
+      - "peer0.jabar.evote.com:3.92.178.127"
+      - "peer1.jabar.evote.com:3.92.178.127"
+      - "ca_peerJatim:35.174.4.12"
+      - "ca_peerJabar:3.92.178.127"
     ports:
       - 7050:7050
