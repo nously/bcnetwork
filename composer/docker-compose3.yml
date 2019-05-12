@@ -11,12 +11,9 @@ services:
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-jabar
-      - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.jabar.evote.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/9fe5a6cc476fbdae949f194a9f749e2feadacc97fb59191cd353548b008cc3da_sk
     ports:
       - "8054:7054"
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.jabar.evote.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/9fe5a6cc476fbdae949f194a9f749e2feadacc97fb59191cd353548b008cc3da_sk -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.jabar.evote.com-cert.pem -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/jabar.evote.com/ca/:/etc/hyperledger/fabric-ca-server-config
     container_name: ca_peerJabar

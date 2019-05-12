@@ -10,12 +10,9 @@ services:
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-jatim
-      - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.jatim.evote.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/d5f53458afb44078b38bc5a29c7b32a77ca9c42293ac370fad4b21346d13b83c_sk
     ports:
       - "7054:7054"
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.jatim.evote.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/d5f53458afb44078b38bc5a29c7b32a77ca9c42293ac370fad4b21346d13b83c_sk -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.jatim.evote.com-cert.pem -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/jatim.evote.com/ca/:/etc/hyperledger/fabric-ca-server-config
     container_name: ca_peerJatim

@@ -106,67 +106,37 @@ cat << EOF > ./byfn-network-jatim.json
     },
     "orderers": {
         "orderer.evote.com": {
-            "url": "grpcs://${ORDERER_HOST}:7050",
-            "grpcOptions": {
-                "ssl-target-name-override": "orderer.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORDERER_CA_CERT`"
-            }
+            "url": "grpc://${ORDERER_HOST}:7050"
         }
     },
     "peers": {
         "peer0.jatim.evote.com": {
-            "url": "grpcs://${JATIM_HOST}:7051",
-						"eventUrl": "grpc://${JATIM_HOST}:7053",
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.jatim.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
-            }
+            "url": "grpc://${JATIM_HOST}:7051",
+	    "eventUrl": "grpc://${JATIM_HOST}:7053
         },
         "peer1.jatim.evote.com": {
-            "url": "grpcs://${JATIM_HOST}:8051",
-						"eventUrl": "grpc://${JATIM_HOST}:8053",
-            "grpcOptions": {
-                "ssl-target-name-override": "peer1.jatim.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
-            }
+            "url": "grpc://${JATIM_HOST}:8051",
+	    "eventUrl": "grpc://${JATIM_HOST}:8053"
         },
         "peer0.jabar.evote.com": {
-            "url": "grpcs://${JABAR_HOST}:9051",
-						"eventUrl": "grpc://${JABAR_HOST}:9053",
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.jabar.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORG2_CA_CERT`"
-            }
+            "url": "grpc://${JABAR_HOST}:9051",
+	    "eventUrl": "grpc://${JABAR_HOST}:9053"
         },
         "peer1.jabar.evote.com": {
-            "url": "grpcs://${JABAR_HOST}:10051",
-						"eventUrl": "grpc://${JABAR_HOST}:10053",
-            "grpcOptions": {
-                "ssl-target-name-override": "peer1.jabar.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORG2_CA_CERT`"
-            }
+            "url": "grpc://${JABAR_HOST}:10051",
+	    "eventUrl": "grpc://${JABAR_HOST}:10053"
         }
     },
     "certificateAuthorities": {
         "ca.jatim.evote.com": {
-            "url": "https://${JATIM_HOST}:7054",
+            "url": "http://${JATIM_HOST}:7054",
             "caName": "ca-jatim",
             "httpOptions": {
                 "verify": false
             }
         },
         "ca.jabar.evote.com": {
-            "url": "https://${JABAR_HOST}:8054",
+            "url": "http://${JABAR_HOST}:8054",
             "caName": "ca-jabar",
             "httpOptions": {
                 "verify": false
@@ -248,67 +218,37 @@ cat << EOF > ./byfn-network-jabar.json
     },
     "orderers": {
         "orderer.evote.com": {
-            "url": "grpcs://${ORDERER_HOST}:7050",
-            "grpcOptions": {
-                "ssl-target-name-override": "orderer.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORDERER_CA_CERT`"
-            }
+            "url": "grpc://${ORDERER_HOST}:7050"
         }
     },
     "peers": {
         "peer0.jatim.evote.com": {
-            "url": "grpcs://${JATIM_HOST}:7051",
-						"eventUrl": "grpc://${JATIM_HOST}:7053",
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.jatim.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
-            }
+            "url": "grpc://${JATIM_HOST}:7051",
+	    "eventUrl": "grpc://${JATIM_HOST}:7053"
         },
         "peer1.jatim.evote.com": {
-            "url": "grpcs://${JATIM_HOST}:8051",
-						"eventUrl": "grpc://${JATIM_HOST}:8053",
-            "grpcOptions": {
-                "ssl-target-name-override": "peer1.jatim.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
-            }
+            "url": "grpc://${JATIM_HOST}:8051",
+	    "eventUrl": "grpc://${JATIM_HOST}:8053"
         },
         "peer0.jabar.evote.com": {
-            "url": "grpcs://${JABAR_HOST}:9051",
-						"eventUrl": "grpc://${JABAR_HOST}:9053",
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.jabar.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORG2_CA_CERT`"
-            }
+            "url": "grpc://${JABAR_HOST}:9051",
+	    "eventUrl": "grpc://${JABAR_HOST}:9053"
         },
         "peer1.jabar.evote.com": {
-            "url": "grpcs://${JABAR_HOST}:10051",
-						"eventUrl": "grpc://${JABAR_HOST}:10053",
-            "grpcOptions": {
-                "ssl-target-name-override": "peer1.jabar.evote.com"
-            },
-            "tlsCACerts": {
-                "pem": "`cat ./tmp/INSERT_ORG2_CA_CERT`"
-            }
+            "url": "grpc://${JABAR_HOST}:10051",
+	    "eventUrl": "grpc://${JABAR_HOST}:10053"
         }
     },
     "certificateAuthorities": {
         "ca.jatim.evote.com": {
-            "url": "https://${JATIM_HOST}:7054",
+            "url": "http://${JATIM_HOST}:7054",
             "caName": "ca-jatim",
             "httpOptions": {
                 "verify": false
             }
         },
         "ca.jabar.evote.com": {
-            "url": "https://${JABAR_HOST}:8054",
+            "url": "http://${JABAR_HOST}:8054",
             "caName": "ca-jabar",
             "httpOptions": {
                 "verify": false
