@@ -26,6 +26,7 @@ Organizations:
 
         # MSPDir is the filesystem path which contains the MSP configuration
         MSPDir: crypto-config/ordererOrganizations/evote.com/msp
+        AdminPrincipal: Role.MEMBER
 
     - &Jatim
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -36,6 +37,7 @@ Organizations:
         ID: JatimMSP
 
         MSPDir: crypto-config/peerOrganizations/jatim.evote.com/msp
+        AdminPrincipal: Role.MEMBER
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
@@ -53,6 +55,7 @@ Organizations:
         ID: JabarMSP
 
         MSPDir: crypto-config/peerOrganizations/jabar.evote.com/msp
+        AdminPrincipal: Role.MEMBER
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
