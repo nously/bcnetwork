@@ -30,7 +30,7 @@ services:
         - ../channel-artifacts:/var/hyperledger/channel-artifacts
         - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer0.jatim.evote.com/msp:/etc/hyperledger/fabric/msp
         - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer0.jatim.evote.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer0.jatim.evote.com/tls
-        - ../crypto-config/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp
+        - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer0.jatim.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp
         - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
         - peer0.jatim.evote.com:/var/hyperledger/production
     extra_hosts:
@@ -70,7 +70,7 @@ services:
         - ../channel-artifacts:/var/hyperledger/channel-artifacts
         - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer1.jatim.evote.com/msp:/etc/hyperledger/fabric/msp
         - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer1.jatim.evote.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer1.jatim.evote.com/tls
-        - ../crypto-config/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp
+        - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer0.jatim.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp
         - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
         - peer1.jatim.evote.com:/var/hyperledger/production
     extra_hosts:
