@@ -1,0 +1,138 @@
+{
+    "name": "byfn-network",
+    "x-type": "hlfv1",
+    "version": "1.0.0",
+	"client": {
+		"organization": "Jatim",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "2100",
+					"eventHub": "2100",
+					"eventReg": "2100"
+				},
+				"orderer": "2100"
+			}
+		}
+	},
+    "channels": {
+        "composerchannel": {
+            "orderers": [
+                "orderer.evote.com"
+            ],
+            "peers": {
+                "peer0.jatim.evote.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer1.jatim.evote.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer0.jabar.evote.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer1.jabar.evote.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Jatim": {
+            "mspid": "JatimMSP",
+            "peers": [
+                "peer0.jatim.evote.com",
+                "peer1.jatim.evote.com"
+            ],
+            "certificateAuthorities": [
+                "ca.jatim.evote.com"
+            ]
+        },
+        "Jabar": {
+            "mspid": "JabarMSP",
+            "peers": [
+                "peer0.jabar.evote.com",
+                "peer1.jabar.evote.com"
+            ],
+            "certificateAuthorities": [
+                "ca.jabar.evote.com"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer.evote.com": {
+            "url": "grpcs://192.168.2.10:7050",
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICPDCCAeKgAwIBAgIRAPXCoPBmnGNnVhciXW6lT9MwCgYIKoZIzj0EAwIwaDEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xEjAQBgNVBAoTCWV2b3RlLmNvbTEYMBYGA1UEAxMPdGxzY2EuZXZv\ndGUuY29tMB4XDTE5MDEyNDE0MjkwMFoXDTI5MDEyMTE0MjkwMFowaDELMAkGA1UE\nBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lz\nY28xEjAQBgNVBAoTCWV2b3RlLmNvbTEYMBYGA1UEAxMPdGxzY2EuZXZvdGUuY29t\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEL9QYZ4h0Q1NDG2JsuZqbi/7qn7lH\n5jwpUX466DcQcTEGEAgJMQe1IfA5U5P28/UDIq9GGkFPMupXI7qp1juc8qNtMGsw\nDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAP\nBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCDeoGZOX0s9uLQUh9wMch47IGLUJGjC\nl0bzlLSIfMK+dzAKBggqhkjOPQQDAgNIADBFAiEAl+cDq5X+a27WEcneObnJXEiC\nbu06UssthG/RlDlMAtsCIDh+uJ9X9cy1It5ER6zQvtYjWbfDZa7LF9YUTTVIgOnk\n-----END CERTIFICATE-----\n"
+            }
+        }
+    },
+    "peers": {
+        "peer0.jatim.evote.com": {
+            "url": "grpcs://192.168.2.11:7051",
+						"eventUrl": "grpc://192.168.2.11:7053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.jatim.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICUzCCAfmgAwIBAgIQA6dY4/OTk6IJvwafBsMpiDAKBggqhkjOPQQDAjB0MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEYMBYGA1UEChMPamF0aW0uZXZvdGUuY29tMR4wHAYDVQQDExV0bHNj\nYS5qYXRpbS5ldm90ZS5jb20wHhcNMTkwMTI0MTQyOTAwWhcNMjkwMTIxMTQyOTAw\nWjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN\nU2FuIEZyYW5jaXNjbzEYMBYGA1UEChMPamF0aW0uZXZvdGUuY29tMR4wHAYDVQQD\nExV0bHNjYS5qYXRpbS5ldm90ZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC\nAASbRPTbSxs14pP6E+EFItWJn+K/zToWBkt0PV//OPpl7rhaVuF6lXuEyySqTu8Q\nvfanxBLmTazStTChBExgFXl+o20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYw\nFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIE\nIMzFQK7OoXrUntrS34DTVItN6Mu8UgBvtrZrqopZaN7pMAoGCCqGSM49BAMCA0gA\nMEUCIQCDWNxKI1ZVO9fnSTR2f0+wHMduWOd6zgA3CIxixeaaJAIgF0iAcojJPKGV\neLRFRi+IkMotoICZSkN0X+oBn7wMWAQ=\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer1.jatim.evote.com": {
+            "url": "grpcs://192.168.2.11:8051",
+						"eventUrl": "grpc://192.168.2.11:8053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.jatim.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICUzCCAfmgAwIBAgIQA6dY4/OTk6IJvwafBsMpiDAKBggqhkjOPQQDAjB0MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEYMBYGA1UEChMPamF0aW0uZXZvdGUuY29tMR4wHAYDVQQDExV0bHNj\nYS5qYXRpbS5ldm90ZS5jb20wHhcNMTkwMTI0MTQyOTAwWhcNMjkwMTIxMTQyOTAw\nWjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN\nU2FuIEZyYW5jaXNjbzEYMBYGA1UEChMPamF0aW0uZXZvdGUuY29tMR4wHAYDVQQD\nExV0bHNjYS5qYXRpbS5ldm90ZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC\nAASbRPTbSxs14pP6E+EFItWJn+K/zToWBkt0PV//OPpl7rhaVuF6lXuEyySqTu8Q\nvfanxBLmTazStTChBExgFXl+o20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYw\nFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIE\nIMzFQK7OoXrUntrS34DTVItN6Mu8UgBvtrZrqopZaN7pMAoGCCqGSM49BAMCA0gA\nMEUCIQCDWNxKI1ZVO9fnSTR2f0+wHMduWOd6zgA3CIxixeaaJAIgF0iAcojJPKGV\neLRFRi+IkMotoICZSkN0X+oBn7wMWAQ=\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer0.jabar.evote.com": {
+            "url": "grpcs://192.168.2.12:9051",
+						"eventUrl": "grpc://192.168.2.12:9053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.jabar.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICUzCCAfmgAwIBAgIQUKOwUe1q7LVhKs22MqHD6DAKBggqhkjOPQQDAjB0MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEYMBYGA1UEChMPamFiYXIuZXZvdGUuY29tMR4wHAYDVQQDExV0bHNj\nYS5qYWJhci5ldm90ZS5jb20wHhcNMTkwMTI0MTQyOTAwWhcNMjkwMTIxMTQyOTAw\nWjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN\nU2FuIEZyYW5jaXNjbzEYMBYGA1UEChMPamFiYXIuZXZvdGUuY29tMR4wHAYDVQQD\nExV0bHNjYS5qYWJhci5ldm90ZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC\nAATRcrm8gDc+tu6OOjMS/OveUaxbZ49D4G+ZYssImfya8wwbcts+Z6vMZZmPQk9m\nb4R6mTCGTMW0p+JypURsCIa7o20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYw\nFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIE\nILQjjgeNe1eUlFjKkoPNSrkk7jThVkX9PsWbdtLjXsnMMAoGCCqGSM49BAMCA0gA\nMEUCIQCig1alBKTH0mijLD64omrzgakN/evkoPCHksrSrOKelAIgE6b5Zjm3ZG7D\nO0ETKd26KX+23VonqD2PeLQCE2Rln/U=\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer1.jabar.evote.com": {
+            "url": "grpcs://192.168.2.12:10051",
+						"eventUrl": "grpc://192.168.2.12:10053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.jabar.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICUzCCAfmgAwIBAgIQUKOwUe1q7LVhKs22MqHD6DAKBggqhkjOPQQDAjB0MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEYMBYGA1UEChMPamFiYXIuZXZvdGUuY29tMR4wHAYDVQQDExV0bHNj\nYS5qYWJhci5ldm90ZS5jb20wHhcNMTkwMTI0MTQyOTAwWhcNMjkwMTIxMTQyOTAw\nWjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN\nU2FuIEZyYW5jaXNjbzEYMBYGA1UEChMPamFiYXIuZXZvdGUuY29tMR4wHAYDVQQD\nExV0bHNjYS5qYWJhci5ldm90ZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC\nAATRcrm8gDc+tu6OOjMS/OveUaxbZ49D4G+ZYssImfya8wwbcts+Z6vMZZmPQk9m\nb4R6mTCGTMW0p+JypURsCIa7o20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYw\nFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIE\nILQjjgeNe1eUlFjKkoPNSrkk7jThVkX9PsWbdtLjXsnMMAoGCCqGSM49BAMCA0gA\nMEUCIQCig1alBKTH0mijLD64omrzgakN/evkoPCHksrSrOKelAIgE6b5Zjm3ZG7D\nO0ETKd26KX+23VonqD2PeLQCE2Rln/U=\n-----END CERTIFICATE-----\n"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.jatim.evote.com": {
+            "url": "https://192.168.2.11:7054",
+            "caName": "ca-jatim",
+            "httpOptions": {
+                "verify": false
+            }
+        },
+        "ca.jabar.evote.com": {
+            "url": "https://192.168.2.12:8054",
+            "caName": "ca-jabar",
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
