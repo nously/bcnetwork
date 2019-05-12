@@ -1,0 +1,26 @@
+version: '2'
+
+volumes:
+  peer1.jatim.evote.com:
+
+services:
+  couchdb1:
+    container_name: couchdb1
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=admin
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for evote map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "6984:5984"
+
+  peer1.jatim.evote.com:
+    container_name: peer1.jatim.evote.com
+    extends:
+      file:  base/docker-compose-base2.yaml
+      service: peer1.jatim.evote.com
+    depends_on:
+      - couchdb1

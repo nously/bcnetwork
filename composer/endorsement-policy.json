@@ -2,7 +2,7 @@
     "identities": [
         {
             "role": {
-                "name": "member",
+                "name": "peer",
                 "mspId": "JatimMSP"
             }
         },
@@ -15,10 +15,10 @@
     ],
     "policy": {
         "2-of": [
-            {
-                "signed-by": 0
-            },
-            {
+	    {
+		"signed-by": 0
+	    },
+	    {
                 "signed-by": 1
             }
         ]
