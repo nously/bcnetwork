@@ -2,22 +2,28 @@
     "identities": [
         {
             "role": {
-                "name": "member",
+                "name": "peer",
                 "mspId": "JatimMSP"
             }
         },
         {
             "role": {
-                "name": "member",
+                "name": "peer",
                 "mspId": "JabarMSP"
             }
         }
     ],
     "policy": {
-        "2-of": [
+        "4-of": [
             {
                 "signed-by": 0
             },
+	    {
+		"signed-by": 0
+	    },
+	    {
+		"signed-by": 1
+	    },
             {
                 "signed-by": 1
             }
