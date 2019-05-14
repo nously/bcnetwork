@@ -2,16 +2,20 @@
 This setup was only necessary in the first time we built the network. This setup includes how to create MSP and other configurations in permissioned blockchain.
 
 **A. MSP**
-1. `$ cd composer`
-2. `$ cryptogen generate --config=./crypto-config.yaml`
+```
+$ cd composer
+$ cryptogen generate --config=./crypto-config.yaml
+```
 
 Hyperledger Fabric provides binary executable file to create MSP easily. Its name is **cryptogen**. It consumes a *.yaml file as a reference to create needed MSP, for instances, what organizations are there in the network, and how many peers are in an organization.
 The configuration is in **composer/crypto-config.yaml**.
 
 **B.  Genesis block and configuration**
-1. ` $ cd composer`
-2. ` $ configtxgen -profile TwoOrgsOrdererGenesis -channelID system-orderer-channel -outputBlock ./channel-artifacts/genesis.block`
-3. ` $ configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelId composerchannel`
+```
+$ cd composer
+$ configtxgen -profile TwoOrgsOrdererGenesis -channelID system-orderer-channel -outputBlock ./channel-artifacts/genesis.block
+$ configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelId composerchannel
+```
 
 Hyperledger Fabric provides binary executable file to  create genesis block and channel configuration. Its name is **configtxgen**. It consumes a *.yaml file as a reference to create needed configuration.
 The configuration is in **composer/configtx.yaml**.
