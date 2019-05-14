@@ -1,5 +1,6 @@
 ## Initial setup
 This setup was only necessary in the first time we built the network. This setup includes how to create MSP and other configurations in permissioned blockchain.
+
 **A. MSP**
 1. `$ cd composer`
 2. `$ cryptogen generate --config=./crypto-config.yaml`
