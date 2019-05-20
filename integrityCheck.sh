@@ -9,8 +9,7 @@ fi
 
 USERNAME=$1
 TXID=$2
-ORGANIZATION=$3
 
-composer transaction submit -c $USERNAME@evote-network -d '{"$class":"org.evote.pemilihan.Check","transactionId":"${TXID}"}'
+composer transaction submit -c $USERNAME@evote-network -d '{"$class":"org.evote.pemilihan.BacaHasilPemilihan"}'
+#composer transaction submit -c $USERNAME@evote-network -d '{"$class":"org.evote.pemilihan.BacaHasilPemilihan","transactionId":"${TXID}"}'
 
-docker logs peer0.$ORGANIZATION.evote.com

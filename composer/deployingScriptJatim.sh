@@ -12,12 +12,7 @@ composer card delete -c PeerAdmin@byfn-network-jabar
 composer card delete -c PeerAdmin@byfn-network-jatim
 composer card delete -c bob@evote-network
 composer card delete -c alice@evote-network
-composer card delete -c dyahayu@evote-network
-composer card delete -c monitoring1@evote-network
-composer card delete -c monitoring2@evote-network
-composer card delete -c kandidat1dyahayu@evote-network
-composer card delete -c bukanDyahAyu@evote-network
-composer card delete -c bukanDyahAyu2@evote-network
+composer card delete -c satu@evote-network
 rm -rv alice
 rm -rv bob
 rm dyahayu.card
