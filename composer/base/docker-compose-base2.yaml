@@ -10,7 +10,7 @@ services:
     environment:
       - CORE_PEER_ID=peer0.jatim.evote.com
       - CORE_PEER_ADDRESS=peer0.jatim.evote.com:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.jatim.evote.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.jatim.evote.com:7051 peer2.jatim.evote.com:7051 peer3.jatim.evote.com:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.jatim.evote.com:7051
       - CORE_PEER_LOCALMSPID=JatimMSP
       - CORE_PEER_TLS_ENABLED=true
@@ -51,7 +51,7 @@ services:
     environment:
       - CORE_PEER_ID=peer1.jatim.evote.com
       - CORE_PEER_ADDRESS=peer1.jatim.evote.com:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.jatim.evote.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.jatim.evote.com:7051 peer2.jatim.evote.com:7051 peer3.jatim.evote.com:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.jatim.evote.com:7051
       - CORE_PEER_LOCALMSPID=JatimMSP
       - CORE_PEER_TLS_ENABLED=true
@@ -82,3 +82,85 @@ services:
     ports:
       - 8051:7051
       - 8053:7053
+
+
+  peer2.jatim.evote.com:
+    container_name: peer2.jatim.evote.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer2.jatim.evote.com
+      - CORE_PEER_ADDRESS=peer2.jatim.evote.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.jatim.evote.com:7051 peer1.jatim.evote.com:7051 peer3.jatim.evote.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2.jatim.evote.com:7051
+      - CORE_PEER_LOCALMSPID=JatimMSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer2.jatim.evote.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer2.jatim.evote.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer2.jatim.evote.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb4:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=admin
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../channel-artifacts:/var/hyperledger/channel-artifacts
+        - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer2.jatim.evote.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer2.jatim.evote.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer2.jatim.evote.com/tls
+        - ../crypto-config/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp
+        - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
+        - peer2.jatim.evote.com:/var/hyperledger/production
+    extra_hosts:
+      - "peer0.jabar.evote.com:192.168.2.12"
+      - "peer1.jabar.evote.com:192.168.2.12"
+      - "ca_peerJabar:192.168.2.12"
+      - "orderer.evote.com:192.168.2.10"
+    ports:
+      - 9051:7051
+      - 9053:7053
+
+
+  peer3.jatim.evote.com:
+    container_name: peer3.jatim.evote.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer3.jatim.evote.com
+      - CORE_PEER_ADDRESS=peer3.jatim.evote.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.jatim.evote.com:7051 peer1.jatim.evote.com:7051 peer2.jatim.evote.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3.jatim.evote.com:7051
+      - CORE_PEER_LOCALMSPID=JatimMSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer3.jatim.evote.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer3.jatim.evote.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer3.jatim.evote.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb5:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=admin
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../channel-artifacts:/var/hyperledger/channel-artifacts
+        - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer3.jatim.evote.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/jatim.evote.com/peers/peer3.jatim.evote.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/peers/peer3.jatim.evote.com/tls
+        - ../crypto-config/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/jatim.evote.com/users/Admin@jatim.evote.com/msp
+        - ../crypto-config/ordererOrganizations/evote.com/msp/tlscacerts:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/evote.com/msp/tlscacerts
+        - peer3.jatim.evote.com:/var/hyperledger/production
+    extra_hosts:
+      - "peer0.jabar.evote.com:192.168.2.12"
+      - "peer1.jabar.evote.com:192.168.2.12"
+      - "ca_peerJabar:192.168.2.12"
+      - "orderer.evote.com:192.168.2.10"
+    ports:
+      - 10051:7051
+      - 10053:7053

@@ -8,7 +8,7 @@ PeerOrgs:
     Domain: jatim.evote.com
     EnableNodeOUs: true
     Template:
-      Count: 2
+      Count: 4
     Users:
       Count: 2
 
