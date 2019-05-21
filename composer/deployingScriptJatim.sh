@@ -64,6 +64,16 @@ cat << EOF > ./byfn-network-jatim.json
                     "chaincodeQuery": true,
                     "eventSource": true
                 },
+		"peer2.jatim.evote.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer3.jatim.evote.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
                 "peer0.jabar.evote.com": {
                     "endorsingPeer": true,
                     "chaincodeQuery": true,
@@ -82,7 +92,9 @@ cat << EOF > ./byfn-network-jatim.json
             "mspid": "JatimMSP",
             "peers": [
                 "peer0.jatim.evote.com",
-                "peer1.jatim.evote.com"
+                "peer1.jatim.evote.com",
+                "peer2.jatim.evote.com",
+                "peer3.jatim.evote.com"
             ],
             "certificateAuthorities": [
                 "ca.jatim.evote.com"
@@ -126,6 +138,26 @@ cat << EOF > ./byfn-network-jatim.json
 						"eventUrl": "grpc://${JATIM_HOST}:8053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.jatim.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
+            }
+        },
+        "peer2.jatim.evote.com": {
+            "url": "grpcs://${JATIM_HOST}:9051",
+						"eventUrl": "grpc://${JATIM_HOST}:9053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer2.jatim.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
+            }
+        },
+        "peer3.jatim.evote.com": {
+            "url": "grpcs://${JATIM_HOST}:10051",
+						"eventUrl": "grpc://${JATIM_HOST}:10053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer3.jatim.evote.com"
             },
             "tlsCACerts": {
                 "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
@@ -206,6 +238,16 @@ cat << EOF > ./byfn-network-jabar.json
                     "chaincodeQuery": true,
                     "eventSource": true
                 },
+                "peer2.jatim.evote.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer3.jatim.evote.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
                 "peer0.jabar.evote.com": {
                     "endorsingPeer": true,
                     "chaincodeQuery": true,
@@ -224,7 +266,9 @@ cat << EOF > ./byfn-network-jabar.json
             "mspid": "JatimMSP",
             "peers": [
                 "peer0.jatim.evote.com",
-                "peer1.jatim.evote.com"
+                "peer1.jatim.evote.com",
+                "peer2.jatim.evote.com",
+                "peer3.jatim.evote.com"
             ],
             "certificateAuthorities": [
                 "ca.jatim.evote.com"
@@ -268,6 +312,26 @@ cat << EOF > ./byfn-network-jabar.json
 						"eventUrl": "grpc://${JATIM_HOST}:8053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.jatim.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
+            }
+        },
+        "peer2.jatim.evote.com": {
+            "url": "grpcs://${JATIM_HOST}:9051",
+						"eventUrl": "grpc://${JATIM_HOST}:9053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer2.jatim.evote.com"
+            },
+            "tlsCACerts": {
+                "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
+            }
+        },
+        "peer3.jatim.evote.com": {
+            "url": "grpcs://${JATIM_HOST}:10051",
+						"eventUrl": "grpc://${JATIM_HOST}:10053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer3.jatim.evote.com"
             },
             "tlsCACerts": {
                 "pem": "`cat ./tmp/INSERT_ORG1_CA_CERT`"
