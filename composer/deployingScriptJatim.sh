@@ -4,9 +4,9 @@ if [ -z ${1} ]; then
 fi
 
 VERSION=$1
-ORDERER_HOST=3.84.77.45
-JATIM_HOST=3.86.93.3
-JABAR_HOST=3.93.213.80
+ORDERER_HOST=3.83.107.155
+JATIM_HOST=3.86.114.209
+JABAR_HOST=3.95.192.194
 
 composer card delete -c PeerAdmin@byfn-network-jabar
 composer card delete -c PeerAdmin@byfn-network-jatim
