@@ -68,7 +68,7 @@
     },
     "orderers": {
         "orderer.evote.com": {
-            "url": "grpcs://3.83.107.155:7050",
+            "url": "grpcs://3.95.152.97:7050",
             "grpcOptions": {
                 "ssl-target-name-override": "orderer.evote.com"
             },
@@ -79,8 +79,8 @@
     },
     "peers": {
         "peer0.jatim.evote.com": {
-            "url": "grpcs://3.86.114.209:7051",
-						"eventUrl": "grpc://3.86.114.209:7053",
+            "url": "grpcs://3.82.151.222:7051",
+						"eventUrl": "grpc://3.82.151.222:7053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.jatim.evote.com"
             },
@@ -89,8 +89,8 @@
             }
         },
         "peer1.jatim.evote.com": {
-            "url": "grpcs://3.86.114.209:8051",
-						"eventUrl": "grpc://3.86.114.209:8053",
+            "url": "grpcs://3.82.151.222:8051",
+						"eventUrl": "grpc://3.82.151.222:8053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.jatim.evote.com"
             },
@@ -99,8 +99,8 @@
             }
         },
         "peer0.jabar.evote.com": {
-            "url": "grpcs://3.95.192.194:9051",
-						"eventUrl": "grpc://3.95.192.194:9053",
+            "url": "grpcs://18.208.127.187:9051",
+						"eventUrl": "grpc://18.208.127.187:9053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.jabar.evote.com"
             },
@@ -109,8 +109,8 @@
             }
         },
         "peer1.jabar.evote.com": {
-            "url": "grpcs://3.95.192.194:10051",
-						"eventUrl": "grpc://3.95.192.194:10053",
+            "url": "grpcs://18.208.127.187:10051",
+						"eventUrl": "grpc://18.208.127.187:10053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.jabar.evote.com"
             },
@@ -121,14 +121,14 @@
     },
     "certificateAuthorities": {
         "ca.jatim.evote.com": {
-            "url": "https://3.86.114.209:7054",
+            "url": "https://3.82.151.222:7054",
             "caName": "ca-jatim",
             "httpOptions": {
                 "verify": false
             }
         },
         "ca.jabar.evote.com": {
-            "url": "https://3.95.192.194:8054",
+            "url": "https://18.208.127.187:8054",
             "caName": "ca-jabar",
             "httpOptions": {
                 "verify": false
